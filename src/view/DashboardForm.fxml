@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dashboardRoot" prefHeight="620.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+    <children>
+        <!-- STATS CARDS GRID -->
+        <GridPane fx:id="statsGrid" hgap="5" vgap="5" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="70" percentWidth="25" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="70" percentWidth="25" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="70" percentWidth="25" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="70" percentWidth="25" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="100" vgrow="NEVER" />
+            </rowConstraints>
+
+            <!-- CARD 1: TOTAL SALES -->
+            <Pane style="-fx-background-color: #ffa502; -fx-background-radius: 8;" GridPane.columnIndex="0">
+                <children>
+                    <VBox alignment="CENTER" maxWidth="Infinity" prefHeight="100.0" prefWidth="223.0" spacing="2">
+                        <JFXButton maxWidth="Infinity" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: white;" text="TOTAL SALES">
+                            <font><Font name="System Bold" size="15.0" /></font>
+                        </JFXButton>
+                        <ImageView fitHeight="33.0" fitWidth="36.0" preserveRatio="true">
+                            <image><Image url="@../resources/sales.png" /></image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="29.0" prefWidth="222.0" spacing="1">
+                            <Label prefHeight="26.0" prefWidth="38.0" style="-fx-text-fill: white;" text="ETB">
+                                <font><Font name="Arial" size="14.0" /></font>
+                            </Label>
+                            <Label fx:id="TotalSales" prefHeight="22.0" prefWidth="42.0" style="-fx-text-fill: white;" text="0">
+                                <font><Font name="Arial" size="15.0" /></font>
+                            </Label>
+                        </HBox>
+                    </VBox>
+                </children>
+            </Pane>
+
+            <!-- CARD 2: TOTAL ORDERS -->
+            <Pane style="-fx-background-color: #747d8c; -fx-background-radius: 8;" GridPane.columnIndex="1">
+                <children>
+                    <VBox alignment="CENTER" maxWidth="Infinity" prefHeight="100.0" prefWidth="223.0" spacing="2">
+                        <JFXButton maxWidth="Infinity" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: white;" text="TOTAL ORDERS">
+                            <font><Font name="System Bold" size="15.0" /></font>
+                        </JFXButton>
+                        <ImageView fitHeight="34.0" fitWidth="44.0" preserveRatio="true">
+                            <image><Image url="@../resources/visit.png" /></image>
+                        </ImageView>
+                        <Label fx:id="TotalOrders" style="-fx-text-fill: white;" text="0">
+                            <font><Font name="Arial" size="15.0" /></font>
+                        </Label>
+                    </VBox>
+                </children>
+            </Pane>
+
+            <!-- CARD 3: TOTAL CUSTOMERS -->
+            <Pane style="-fx-background-color: #00a8ff; -fx-background-radius: 8;" GridPane.columnIndex="2">
+                <children>
+                    <VBox alignment="CENTER" maxWidth="Infinity" prefHeight="100.0" prefWidth="223.0" spacing="2">
+                        <JFXButton maxWidth="Infinity" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: white;" text="TOTAL CUSTOMERS">
+                            <font><Font name="System Bold" size="15.0" /></font>
+                        </JFXButton>
+                        <ImageView fitHeight="37.0" fitWidth="40.0" preserveRatio="true">
+                            <image><Image url="@../resources/newcust.png" /></image>
+                        </ImageView>
+                        <Label fx:id="txtTotalCustomers" style="-fx-text-fill: white;" text="0">
+                            <font><Font name="Arial" size="15.0" /></font>
+                        </Label>
+                    </VBox>
+                </children>
+            </Pane>
+
+            <!-- CARD 4: SOLD ITEMS -->
+            <Pane style="-fx-background-color: #ff4757; -fx-background-radius: 8;" GridPane.columnIndex="3">
+                <children>
+                    <VBox alignment="CENTER" maxWidth="Infinity" prefHeight="100.0" prefWidth="223.0" spacing="2">
+                        <JFXButton maxWidth="Infinity" prefHeight="22" style="-fx-background-color: transparent; -fx-text-fill: white;" text="SOLD ITEMS">
+                            <font><Font name="System Bold" size="15.0" /></font>
+                        </JFXButton>
+                        <ImageView fitHeight="36.0" fitWidth="58.0" preserveRatio="true">
+                            <image><Image url="@../resources/sold.png" /></image>
+                        </ImageView>
+                        <Label fx:id="SoldItem" style="-fx-text-fill: white;" text="0">
+                            <font><Font name="Arial" size="15.0" /></font>
+                        </Label>
+                    </VBox>
+                </children>
+            </Pane>
+        </GridPane>
+
+        <!-- MIDDLE SEPARATOR -->
+        <Pane layoutY="115" prefHeight="2" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+        <!-- CHARTS CONTAINER -->
+        <GridPane hgap="5" vgap="5" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="122.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="180" percentWidth="50" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="180" percentWidth="50" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="160" vgrow="ALWAYS" />
+            </rowConstraints>
+
+            <!-- AREA CHART -->
+            <Pane style="-fx-background-color: #ffffff; -fx-background-radius: 8;" GridPane.columnIndex="0">
+                <effect><DropShadow radius="2" /></effect>
+                <children>
+                    <AreaChart fx:id="areaChart" animated="false" prefHeight="359.0" prefWidth="433.0" title="WEEKLY SALES" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+                        <xAxis>
+                            <CategoryAxis label="DAYS" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="SOLD ITEMS" />
+                        </yAxis>
+                    </AreaChart>
+                </children>
+            </Pane>
+
+            <!-- PIE CHART -->
+            <Pane style="-fx-background-color: #ffffff; -fx-background-radius: 8;" GridPane.columnIndex="1">
+                <effect><DropShadow radius="2" /></effect>
+                <children>
+                    <PieChart fx:id="PieChart" labelsVisible="false" legendSide="TOP" prefHeight="454.0" prefWidth="452.0" startAngle="90" title="MONTHLY SALES" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0" />
+                </children>
+            </Pane>
+        </GridPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane fx:id="root1" minHeight="650" minWidth="1100" prefHeight="700" prefWidth="1200" style="-fx-background-image: url('../resources/background.png');                    -fx-background-size: cover;                    -fx-background-repeat: no-repeat;                    -fx-background-position: center;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashboardController">
+
+    <!-- TOP BAR -->
+    <Pane prefHeight="50" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <effect>
+            <DropShadow spread="0.05">
+                <color>
+                    <Color opacity="0.0" />
+                </color>
+            </DropShadow>
+        </effect>
+    </Pane>
+
+    <!-- WINDOW CONTROLS -->
+    <Pane prefHeight="30" prefWidth="120" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="15" AnchorPane.topAnchor="10">
+        <children>
+            <Button fx:id="btnMinimize" layoutX="-4.0" layoutY="-3.0" onAction="#btnMinimizeOnAction" prefHeight="23.0" prefWidth="35.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-font-size: 20; -fx-background-radius: 5;" text="-">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+
+            <Button fx:id="btnMaximize" layoutX="40" onAction="#btnMaximizeOnAction" prefHeight="35" prefWidth="35" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-font-size: 14; -fx-background-radius: 5;" text="□">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+
+            <Button fx:id="btnClose" layoutX="80" onAction="#btnCloseOnAction" prefHeight="35" prefWidth="35" style="-fx-background-color: rgba(255,0,0,0.2); -fx-text-fill: white; -fx-font-size: 16; -fx-background-radius: 5;" text="✕">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+        </children>
+    </Pane>
+
+    <!-- SIDEBAR -->
+    <VBox fx:id="sidebar" alignment="TOP_CENTER" maxWidth="350" minWidth="200" prefWidth="220" spacing="10" style="-fx-background-color: linear-gradient(to bottom, rgba(108, 92, 231, 0.95), rgba(211, 0, 240, 0.95));                  -fx-background-radius: 0 0 0 0;                  -fx-border-color: rgba(255,255,255,0.1);                  -fx-border-width: 0 2 0 0;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="50">
+
+        <effect>
+            <DropShadow height="31.0" radius="15.0" width="31.0">
+                <color>
+                    <Color opacity="0.0" />
+                </color>
+            </DropShadow>
+        </effect>
+
+        <padding>
+            <Insets bottom="20" left="15" right="15" top="20" />
+        </padding>
+
+        <children>
+            <!-- Logo with proper alignment -->
+            <VBox alignment="CENTER" spacing="10" VBox.vgrow="NEVER">
+                <ImageView fx:id="logoImage" fitHeight="100" fitWidth="100" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 5);">
+                    <image>
+                        <Image url="@../resources/logo2.png" />
+                    </image>
+                </ImageView>
+                <Pane maxWidth="140" prefHeight="2" style="-fx-background-color: rgba(255,255,255,0.3);" />
+            </VBox>
+
+            <!-- ScrollPane for buttons -->
+            <ScrollPane fx:id="buttonScrollPane" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background: transparent; -fx-background-color: transparent; -fx-padding: 0;" VBox.vgrow="ALWAYS">
+                <content>
+                    <!-- BUTTONS CONTAINER -->
+                    <VBox fx:id="buttonContainer" alignment="TOP_CENTER" spacing="8" VBox.vgrow="ALWAYS">
+                        <padding>
+                            <Insets top="10" bottom="10" left="5" right="5" />
+                        </padding>
+
+                        <children>
+                            <!-- Dashboard Button -->
+                            <Button fx:id="btnDashBoard" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#DashBoardOnAction" style="-fx-background-color: rgba(255,255,255,0.25);                                       -fx-background-radius: 8;                                       -fx-border-radius: 8;                                       -fx-border-color: rgba(255,255,255,0.3);                                       -fx-border-width: 1;" text="DASHBOARD" textFill="WHITE">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <font>
+                                    <Font name="System Bold" size="14" />
+                                </font>
+                                <graphic>
+                                    <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/dashboard.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <padding>
+                                    <Insets bottom="12" left="15" right="15" top="12" />
+                                </padding>
+                                <VBox.margin>
+                                    <Insets left="2" right="2" bottom="4" />
+                                </VBox.margin>
+                                <effect>
+                                    <InnerShadow color="rgba(0,0,0,0.2)" radius="4" />
+                                </effect>
+                            </Button>
+
+                            <!-- New Cashier Button -->
+                            <Button fx:id="btnAddCashier" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#btnAddCashier" style="-fx-background-color: rgba(255,255,255,0.15);                                       -fx-background-radius: 8;                                       -fx-border-radius: 8;                                       -fx-border-color: rgba(255,255,255,0.3);                                       -fx-border-width: 1;" text="NEW CASHIER" textFill="WHITE">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <font>
+                                    <Font name="System Bold" size="14" />
+                                </font>
+                                <graphic>
+                                    <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/Girl.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <padding>
+                                    <Insets bottom="12" left="15" right="15" top="12" />
+                                </padding>
+                                <VBox.margin>
+                                    <Insets left="2" right="2" bottom="4" />
+                                </VBox.margin>
+                                <effect>
+                                    <InnerShadow color="rgba(0,0,0,0.2)" radius="4" />
+                                </effect>
+                            </Button>
+
+                            <!-- All Reports Button -->
+                            <Button fx:id="btnReport" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#btnReportOnAction" style="-fx-background-color: rgba(255,255,255,0.15);                                       -fx-background-radius: 8;                                       -fx-border-radius: 8;                                       -fx-border-color: rgba(255,255,255,0.3);                                       -fx-border-width: 1;" text="ALL REPORTS" textFill="WHITE">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <font>
+                                    <Font name="System Bold" size="14" />
+                                </font>
+                                <graphic>
+                                    <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/reports.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <padding>
+                                    <Insets bottom="12" left="15" right="15" top="12" />
+                                </padding>
+                                <VBox.margin>
+                                    <Insets left="2" right="2" bottom="4" />
+                                </VBox.margin>
+                                <effect>
+                                    <InnerShadow color="rgba(0,0,0,0.2)" radius="4" />
+                                </effect>
+                            </Button>
+
+                            <!-- Customers Button -->
+                            <Button fx:id="btnCustomers" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#btnAddCustomer" style="-fx-background-color: rgba(255,255,255,0.15);                                       -fx-background-radius: 8;                                       -fx-border-radius: 8;                                       -fx-border-color: rgba(255,255,255,0.3);                                       -fx-border-width: 1;" text="CUSTOMERS" textFill="WHITE">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <font>
+                                    <Font name="System Bold" size="14" />
+                                </font>
+                                <graphic>
+                                    <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/customer.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <padding>
+                                    <Insets bottom="12" left="15" right="15" top="12" />
+                                </padding>
+                                <VBox.margin>
+                                    <Insets left="2" right="2" bottom="4" />
+                                </VBox.margin>
+                                <effect>
+                                    <InnerShadow color="rgba(0,0,0,0.2)" radius="4" />
+                                </effect>
+                            </Button>
+
+                            <!-- Add Item Button -->
+                            <Button fx:id="btnAddItem" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#AddItemOnAction" style="-fx-background-color: rgba(255,255,255,0.15);                                       -fx-background-radius: 8;                                       -fx-border-radius: 8;                                       -fx-border-color: rgba(255,255,255,0.3);                                       -fx-border-width: 1;" text="ADD ITEM" textFill="WHITE">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <font>
+                                    <Font name="System Bold" size="14" />
+                                </font>
+                                <graphic>
+                                    <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/additem.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <padding>
+                                    <Insets bottom="12" left="15" right="15" top="12" />
+                                </padding>
+                                <VBox.margin>
+                                    <Insets left="2" right="2" bottom="4" />
+                                </VBox.margin>
+                                <effect>
+                                    <InnerShadow color="rgba(0,0,0,0.2)" radius="4" />
+                                </effect>
+                            </Button>
+
+                            <!-- Supplier Button -->
+                            <Button fx:id="btnSupplier" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#btnSuplayerOnAction" style="-fx-background-color: rgba(255,255,255,0.15);                                       -fx-background-radius: 8;                                       -fx-border-radius: 8;                                       -fx-border-color: rgba(255,255,255,0.3);                                       -fx-border-width: 1;" text="SUPPLIER" textFill="WHITE">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <font>
+                                    <Font name="System Bold" size="14" />
+                                </font>
+                                <graphic>
+                                    <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/suply.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <padding>
+                                    <Insets bottom="12" left="15" right="15" top="12" />
+                                </padding>
+                                <VBox.margin>
+                                    <Insets left="2" right="2" bottom="4" />
+                                </VBox.margin>
+                                <effect>
+                                    <InnerShadow color="rgba(0,0,0,0.2)" radius="4" />
+                                </effect>
+                            </Button>
+
+                            <!-- About Button -->
+                            <Button fx:id="btnAbout" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#btnAboutOnAction" style="-fx-background-color: rgba(255,255,255,0.15);                                       -fx-background-radius: 8;                                       -fx-border-radius: 8;                                       -fx-border-color: rgba(255,255,255,0.3);                                       -fx-border-width: 1;" text="ABOUT" textFill="WHITE">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                                <font>
+                                    <Font name="System Bold" size="14" />
+                                </font>
+                                <graphic>
+                                    <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/About.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <padding>
+                                    <Insets bottom="12" left="15" right="15" top="12" />
+                                </padding>
+                                <VBox.margin>
+                                    <Insets left="2" right="2" bottom="4" />
+                                </VBox.margin>
+                                <effect>
+                                    <InnerShadow color="rgba(0,0,0,0.2)" radius="4" />
+                                </effect>
+                            </Button>
+                        </children>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- Logout Button Container (Outside ScrollPane to stay at bottom) -->
+            <VBox alignment="CENTER" spacing="8" VBox.vgrow="NEVER">
+                <Pane maxWidth="160" prefHeight="2" style="-fx-background-color: rgba(255,255,255,0.3);" />
+                <!-- Logout Button -->
+                <Button fx:id="btnLogOut" maxWidth="Infinity" minHeight="55" prefHeight="55" onAction="#btnLogOut" style="-fx-background-color: rgba(0,0,0,0.4);                                           -fx-background-radius: 8;                                           -fx-border-radius: 8;                                           -fx-border-color: rgba(255,255,255,0.2);                                           -fx-border-width: 1;" text="LOGOUT" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="System Bold" size="14" />
+                    </font>
+                    <padding>
+                        <Insets bottom="12" left="20" right="20" top="12" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets left="5" right="5" top="5" />
+                    </VBox.margin>
+                    <effect>
+                        <DropShadow color="rgba(0,0,0,0.3)" radius="4" />
+                    </effect>
+                </Button>
+            </VBox>
+        </children>
+    </VBox>
+
+    <!-- MAIN CONTENT -->
+    <Pane fx:id="context" style="-fx-background-color: rgba(255,255,255,0.95);                  -fx-background-radius: 15 0 0 0;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="220" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="50">
+        <effect>
+            <DropShadow color="rgba(0,0,0,0.1)" radius="20" />
+        </effect>
+    </Pane>
+
+</AnchorPane>
